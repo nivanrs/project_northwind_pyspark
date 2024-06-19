@@ -1,0 +1,20 @@
+project_2/
+|    northwind_project/
+|    ├── models/
+|    │   ├── sources.yml
+|    │   ├── staging/
+|    │   │   ├── stg_dim_categories.sql
+|    │   │   ├── stg_dim_employees.sql
+|    │   │   ├── stg_dim_product.sql
+|    │   │   ├── stg_dim_suppliers.sql
+|    │   │   ├── stg_fact_order_details.sql
+|    │   │   ├── stg_fact_orders.sql
+|    │   └── marts/
+|    │       └── dm_monthly_supplier_gross_revenue.sql
+|    │       └── dm_top_category_sales.sql
+|    │       └── dm_top_employee_revenue.sql
+|    │       └── schema.yml
+|    └── schema.yml
+|    └── dbt_project.yml
+|    └── profiles.yml
+|___ profiles.yml

@@ -1,0 +1,35 @@
+FROM postgres:latest
+
+ENV POSTGRES_USER=postgres
+ENV POSTGRES_PASSWORD=12345678
+ENV POSTGRES_DB=northwind
+
+# if you want to check the result on local
+EXPOSE 5432
+
+COPY ./init_db/init.py /docker-entrypoint-initdb.d/
+
+# Install dependencies
+RUN apt-get update && apt-get install -y python3-pip python3-venv
+
+# Create necessary directories
+RUN mkdir -p /usr/src/app/project_2/northwind_project
+RUN mkdir -p /usr/src/app/project_2/init_db
+RUN mkdir -p /root/.dbt
+
+# Copy the dbt project and profiles.yml into the container
+COPY northwind_project/ /usr/src/app/project_2/northwind_project
+COPY init_db/ /usr/src/app/project_2/init_db
+COPY northwind_project/profiles.yml /root/.dbt/profiles.yml
+
+# Set the working directory inside the container
+WORKDIR /usr/src/app/project_2
+
+# Create a virtual environment and install dbt
+RUN python3 -m venv venv
+RUN /usr/src/app/project_2/venv/bin/pip install dbt
+
+# Add venv to PATH
+ENV PATH="/usr/src/app/project_2/venv/bin:$PATH"
+
+# Additional setup steps can be added here

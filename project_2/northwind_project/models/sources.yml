@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+  - name: raw
+    database: northwind
+    schema: public
+    tables:
+      - name: order_details
+      - name: orders
+      - name: products
+      - name: suppliers
+      - name: employees
+      - name: categories

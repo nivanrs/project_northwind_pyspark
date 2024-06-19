@@ -1,0 +1,12 @@
+northwind_project:
+  outputs:
+    dev:
+      dbname: northwind
+      host: localhost
+      pass: '12345678'
+      port: 5432
+      schema: public
+      threads: 4
+      type: postgres
+      user: postgres
+  target: dev
