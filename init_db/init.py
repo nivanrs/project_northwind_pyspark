@@ -44,8 +44,8 @@ def upload_csv_to_postgres(file_paths, db_url):
         print(f"Data dari file '{file_path}' berhasil diunggah ke tabel '{table_name}' di database.")
 
 # Contoh penggunaan
-csv_folder_path = 'D:/Bootcamp data engineer/Project/project_3/git clone/project_northwind_pyspark/project_2/csv'  # Ganti dengan path folder yang berisi file CSV Anda
-db_url = 'postgresql://postgres:12345678@localhost:5432/northwind'  # Ganti dengan URL koneksi PostgreSQL Anda
+csv_folder_path = './csv'  # Ganti dengan path folder yang berisi file CSV Anda
+db_url = 'postgresql://postgres:12345678@localhost:5431/northwind-pyspark'  # Ganti dengan URL koneksi PostgreSQL Anda
 
 # Mendapatkan daftar file CSV dalam folder
 csv_files = [os.path.join(csv_folder_path, f) for f in os.listdir(csv_folder_path) if f.endswith('.csv')]
